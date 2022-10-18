@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class EmpresaAutomotriz
 {
     //----------------------
@@ -10,22 +12,29 @@ public class EmpresaAutomotriz
     //----------------------
     // Atributos
     //----------------------
-    private Empleado[] empleados;
+    //private Empleado[] empleados;
+    private ArrayList empleados;
 
     //----------------------
     // Metodos
     //----------------------
     public EmpresaAutomotriz()
     {
-        empleados = new Empleado[NUMERO_EMPLEADOS];
+        //empleados = new Empleado[NUMERO_EMPLEADOS];
+        empleados = new ArrayList();
     }
 
-    public void agregarEmpleado(Empleado emp, int pos)
+    /*public void agregarEmpleado(Empleado emp, int pos)
     {
         empleados[pos] = emp;
+    }*/
+
+    public void agregarEmpleado(Empleado emp)
+    {
+        empleados.add(emp);
     }
 
-    public double calcularNomina()
+    /*public double calcularNomina()
     {
         double totalNomina = 0;
         for(int i=0; i<empleados.length; i++)
@@ -33,10 +42,21 @@ public class EmpresaAutomotriz
             totalNomina = totalNomina + empleados[i].getSueldo();
         }
         return totalNomina;
+    }*/
+
+    public double calcularNomina()
+    {
+        double totalnomina = 0;
+        for(int i=0; i<empleados.size();i++)
+        {
+            Empleado temp = (Empleado) empleados.get(i);
+            totalnomina = totalnomina + temp.getSueldo();
+        }
+        return totalnomina;
     }
 
     public Empleado getEmpleado(int i)
     {
-        return empleados[i];
+        return (Empleado) empleados.get(i);
     }
 }
