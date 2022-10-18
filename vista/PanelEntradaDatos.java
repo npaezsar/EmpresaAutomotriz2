@@ -46,6 +46,11 @@ public class PanelEntradaDatos extends JPanel
         return (String) cbEmpleados.getSelectedItem();
     }
 
+    public int getIndexEmpleado()
+    {
+        return cbEmpleados.getSelectedIndex();
+    }
+
     public void setEmpleado(String emp)
     {
         cbEmpleados.addItem(emp);

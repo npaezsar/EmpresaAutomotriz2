@@ -1,5 +1,6 @@
 package controlador;
 
+import modelo.Carro;
 import modelo.Empleado;
 import modelo.EmpresaAutomotriz;
 import vista.VentanaPrincipal;
@@ -60,19 +61,30 @@ public class Controlador implements ActionListener
         //Vender carro
         if(comando.equals("vender"))
         {
+            int indexVendedor = venPrin.miPanelEntradaDatos.getIndexEmpleado();
 
+            double precio = Double.parseDouble(venPrin.miDialogoVenderCarro.getPrecioCarro());
+
+            Empleado emp = empresa.getEmpleado(indexVendedor);
+            emp.venderCarro(new Carro(precio));
+            venPrin.miPanelResultados.mostrarResultado("El empleado: " + emp.getNombre() + " ha vendido un carro");
+            venPrin.miDialogoVenderCarro.cerrarDialogoVenderCarro();
         }
 
         //Calcular el sueldo de un vendedor
         if(comando.equals("calcularSueldo"))
         {
-
+            int indexVendedor = venPrin.miPanelEntradaDatos.getIndexEmpleado();
+            Empleado emple = empresa.getEmpleado(indexVendedor);
+            emple.calcularSueldo();
+            venPrin.miPanelResultados.mostrarResultado("El sueldo del empleado: " + emple.getNombre() + " es " + emple.getSueldo());
         }
 
         //Liquidar nomina total empresa
         if(comando.equals("liquidarNomina"))
         {
-
+            double valorNomina = empresa.calcularNomina();
+            venPrin.miPanelResultados.mostrarResultado("El valor total de la nómina es." + valorNomina);
         }
 
 
