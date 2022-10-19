@@ -26,7 +26,7 @@ public class Controlador implements ActionListener
         this.venPrin = pVenPrin;
         this.empresa = pEmpresa;
         this.venPrin.miPanelOperaciones.agregarOyentesBotones(this);
-        this.venPrin.miPanelResultados.mostrarResultado("Se ha creado un objeto EmpresaAutomotriz...");
+        this.venPrin.miPanelResultados.mostrarResultado("App lista para usar... \nSe han creado los siguientes tipos de objetos: \nVentanaPrincipal\nEmpresaAutomotriz\nControlador");
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Controlador implements ActionListener
             String nombre = venPrin.miDialogoAgregarVendedor.getNombreVendedor();
             empresa.agregarEmpleado(new Empleado(nombre));
             venPrin.miPanelEntradaDatos.setEmpleado(nombre);
-            venPrin.miPanelResultados.mostrarResultado("Se ha agreado un nuevo empleado: " + nombre);
+            venPrin.miPanelResultados.mostrarResultado("Se ha agreado un nuevo empleado. \nNombre: " + nombre);
             venPrin.miDialogoAgregarVendedor.cerrarDialogoAgregarVendedor();
         }
 
@@ -67,7 +67,8 @@ public class Controlador implements ActionListener
 
             Empleado emp = empresa.getEmpleado(indexVendedor);
             emp.venderCarro(new Carro(precio));
-            venPrin.miPanelResultados.mostrarResultado("El empleado: " + emp.getNombre() + " ha vendido un carro");
+
+            venPrin.miPanelResultados.mostrarResultado("El empleado: " + emp.getNombre() + " ha vendido un carro\nValor: " + precio);
             venPrin.miDialogoVenderCarro.cerrarDialogoVenderCarro();
         }
 
@@ -84,7 +85,12 @@ public class Controlador implements ActionListener
         if(comando.equals("liquidarNomina"))
         {
             double valorNomina = empresa.calcularNomina();
-            venPrin.miPanelResultados.mostrarResultado("El valor total de la nómina es." + valorNomina);
+            String listaEmpleados = "";
+            for(int i=0; i<empresa.getNumeroEmpleados(); i++)
+            {
+                listaEmpleados = listaEmpleados + empresa.getEmpleado(i).getNombre() + ": " + empresa.getEmpleado(i).getSueldo() + "\n";
+            }
+            venPrin.miPanelResultados.mostrarResultado("El valor total de la nómina es." + valorNomina + "\n" + listaEmpleados);
         }
 
 

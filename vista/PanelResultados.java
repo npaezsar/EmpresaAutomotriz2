@@ -41,6 +41,7 @@ public class PanelResultados extends JPanel
     //Metodos de acceso
     public void mostrarResultado(String msj)
     {
-        taResultado.append(msj + "\n");
+        //taResultado.append(msj + "\n");
+        taResultado.setText(msj);
     }
 }

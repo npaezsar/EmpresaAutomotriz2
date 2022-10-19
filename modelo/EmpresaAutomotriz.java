@@ -59,4 +59,9 @@ public class EmpresaAutomotriz
     {
         return (Empleado) empleados.get(i);
     }
+
+    public int getNumeroEmpleados()
+    {
+        return empleados.size();
+    }
 }
