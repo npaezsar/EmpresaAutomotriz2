@@ -56,6 +56,6 @@ public class VentanaPrincipal extends JFrame
     //Crear Dialogo VenderCarro
     public void crearDialogoVenderCarro()
     {
-        miDialogoVenderCarro = new DialogoVenderCarro();
+        miDialogoVenderCarro = new DialogoVenderCarro(miPanelEntradaDatos.getEmpleado());
     }
 }

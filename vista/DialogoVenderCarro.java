@@ -11,6 +11,7 @@ public class DialogoVenderCarro extends JDialog
     //----------------------
     // Atributos
     //----------------------
+    private JLabel lbEmpleado;
     private JLabel lbPrecioCarro;
     private JTextField tfPrecioCarro;
     private JButton btVenderCarro;
@@ -18,12 +19,16 @@ public class DialogoVenderCarro extends JDialog
     //----------------------
     // Metodos
     //----------------------
-    public DialogoVenderCarro()
+    public DialogoVenderCarro(String nom)
     {
         //Definición del layout del Dialogo
         this.setLayout(null);
 
         //Crear y agregar elementos
+        lbEmpleado = new JLabel("Empleado: " + nom, JLabel.CENTER);
+        lbEmpleado.setBounds(0,10,280,20);
+        this.add(lbEmpleado);
+
         lbPrecioCarro = new JLabel("Precio Carro: ");
         lbPrecioCarro.setBounds(10,50,140,20);
         this.add(lbPrecioCarro);
@@ -60,5 +65,4 @@ public class DialogoVenderCarro extends JDialog
     {
         this.dispose();
     }
-
 }
