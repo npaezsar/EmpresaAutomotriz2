@@ -16,3 +16,7 @@ Elaborar un programa que permita leer los datos e imprimir el reporte de nómina
 ## vista
 
 ![vista](vista.png "vista")
+
+## Diagrama objetos
+
+![Diagrama objetos](diagramaObjetos.jpg "Diagrama objetos")
